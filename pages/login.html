@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
-
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/pages/css/login.css">
     <title>Login</title>
 </head>
     <div class="top-bar">
@@ -17,17 +17,33 @@
         </div>
         <div class="top-bar-right">
         <ul class="menu">
+            <li><a href="/index.html">Home</a></li>
             <li><a href="#">Community</a></li>
             <li><a href="#">Create </a></li>
-            <li><a href="/pages/login.html">Login</a></li>
+            <li><a href="#">Login</a></li>
         </ul>
         </div>
     </div>
     </div>
     <div class="grid-x">
-        <div class="cell small-6"></div>
+        <div class="cell small-6" id="back">
+            <div class="info">
+            <h2>Login</h2>
+            <label>
+                UserName
+                <input type="text">
+            </label>
+            <label>
+                Password
+                <input type="text">
+            </label>
+            <a href="#0" class="button" id="start">Login</a>
+            <a href="/pages/createAccount.html" class="space">Create Account</a>
+            <a href="#0" class="space">Forgot Password?</a>
+        </div>
+        </div>
         <div class="cell small-6">
-            <img src="/imgs/">
+            <img src="/imgs/coffee_laptop.jpg" id="pic">
         </div>
       </div> 
 <body>
