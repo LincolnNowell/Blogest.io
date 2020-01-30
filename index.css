@@ -1,4 +1,18 @@
 #title-img{
-    height: 690px;
+    height: 100vh;
     width: 100%;
+}
+
+#slogan{
+    position: fixed;
+    top: 30%;
+    left: 20%;
+    color: #1779ba;
+    background-color: #e6e6e6;
+    border-radius: 5px;
+}
+#start{
+    position: fixed;
+    top: 50%;
+    left: 85%;
 }
