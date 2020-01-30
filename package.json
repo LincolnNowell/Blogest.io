@@ -1,0 +1,26 @@
+{
+  "name": "blogest.io",
+  "version": "1.0.0",
+  "description": "Blog Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LincolnNowell/Blogest.io.git"
+  },
+  "author": "Lincoln Nowell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LincolnNowell/Blogest.io/issues"
+  },
+  "homepage": "https://github.com/LincolnNowell/Blogest.io#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
