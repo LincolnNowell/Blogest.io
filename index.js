@@ -6,7 +6,6 @@ app.use(express.urlencoded());
 
 
 app.use("/imgs",express.static(__dirname + '/imgs'));
-//app.use("/scripts",express.static(__dirname + '/scripts'));
 app.use('/pages',express.static(__dirname + '/pages'));
 
 app.get('/',(req,res) =>{
