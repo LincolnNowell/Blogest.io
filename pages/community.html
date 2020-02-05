@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./css/community.css">
     <title>Community</title>
 </head>
 <body>
@@ -26,6 +26,27 @@
           </ul>
         </div>
       </div>
+      <div class="grid-x">
+        <div class="cell small-3">
+          <div class="search">
+            <input type="search" placeholder="Search">
+            <button type="button" class="button">Search</button>
+          </div>
+          <fieldset class="fieldset">
+            <legend>Filter</legend>
+            <input type="radio" name="selection" value="Most Viewed" id="most" required><label for="most">Most Viewed</label>
+            <input type="radio" name="selection" value="Newest" id="new"><label for="Newest">Newest</label>
+            <input type="radio" name="selection" value="Highest Rated" id="highest"><label for="Highest Rated">Highest Rated</label>
+          </fieldset>
+        </div>
+        <div class="cell small-9">
+          <div class="bloggers">
+            
+          </div>
+        </div>
+      </div> 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="scripts/community.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 let mongoose = require('mongoose');
 
 //Set up default mongoose connection
-let mongoDB = 'mongodb://127.0.0.1/Users';
+let mongoDB = "mongodb://localhost:27017/blog";
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true});
 
 mongoose.connection.once('open',() => {
