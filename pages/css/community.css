@@ -7,3 +7,32 @@
     display: flex;
     flex-direction: column;
 }
+
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bloggers{
+    padding: 5px;
+    height: 90vh;
+    overflow-y: scroll;
+}
+
+.blogger{
+    padding: 5px;
+    border-top: 2px solid #e6e6e6;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.pic{
+    border-radius:50%;
+}
+
+.imgs{
+    width: 10%;
+    border-radius:50%;
+    border: 2px solid #e6e6e6;
+    margin-right: 15px;  
+}
