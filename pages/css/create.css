@@ -1,0 +1,31 @@
+.option{
+    display: flex;
+    flex-direction: row;
+    padding-left: 25%;
+    padding-top: 20px;
+}
+
+#font{
+    width: 25%;
+    margin-left: 15px;
+}
+
+#font_family{
+    width: 75%;
+    margin-left: 15px; 
+}
+
+#align{
+    width: 50%;
+    margin-left: 15px;
+}
+
+#text{
+    margin-top: 50px;
+    height: 80vh;
+}
+
+#start{
+    margin-top: 570px;
+    margin-left: 10px;
+}

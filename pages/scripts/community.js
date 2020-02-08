@@ -43,3 +43,52 @@ btns.forEach(element =>{
         });
     })
 })
+
+$.get('/user',(bloggers)=>{
+    let numbOfBloggers = 0;
+    numbOfBloggers = bloggers.length;
+    let stuff = numbOfBloggers;
+    let pages = 0;
+    while(stuff > 0){
+        stuff -= 12;
+        pages++;
+    }
+
+    let pagination = document.getElementsByClassName('pagination');
+
+    for(let page = 0; page < pages; page++){
+        let number = document.createElement('li');
+        number.innerHTML = `<a href="#" aria-label="Page ${page + 1}">${page + 1}</a>`;
+        pagination.item(0).append(number);
+    }
+    let pgs = document.getElementsByClassName('pagination');
+    let things = pgs.item(0).querySelectorAll('a');
+    things.forEach(element =>{
+        element.addEventListener('click', (e)=>{
+            let what = e.currentTarget;
+            $.get('/user', (data,status)=>{
+                let prev = document.querySelector('.current');
+                if(prev){prev.className = "";}
+                let current = what.parentElement;
+                current.className = 'current';
+                let main = document.querySelector('.bloggers');   
+
+                let child = main.lastElementChild;
+                while(child){
+                    main.removeChild(child);
+                    child = main.lastElementChild;
+                } 
+
+                let begin = Number.parseInt(what.innerText) - 1;
+                for(let i = begin * 12; i < ((begin + 1) * 12); i++){
+                    if(i < data.length){
+                        let user = document.createElement('div');
+                        user.className = 'blogger';
+                        user.innerHTML = CreateBlogger(data[i].name);
+                        main.append(user);
+                    }
+                }
+            })
+        })
+    })
+})

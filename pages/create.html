@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/create.css">
     <title>Community</title>
 </head>
 <body>
@@ -27,5 +27,42 @@
         </div>
       </div>
     </div>
+    <div class="grid-x">
+      <div class="cell small-3">
+        <ul>
+          <li class="option">
+            Font-Size<input type="number" id="font">
+          </li>
+          <li class="option">
+            Font<select id="font_family">
+                <option value="Arial">Arial, Helvetica, sans-serif</option>
+                <option value="Arial Black">Arial Black, Gadget, sans-serif</option>
+                <option value="Comic Sans MS">Comic Sans MS, cursive, sans-serif</option>
+                <option value="Impact">Impact, Charcoal, sans-serif</option>
+                <option value="Lucida">Lucida Sans Unicode, "Lucida Grande", sans-serif</option>
+                <option value="Tahoma">Tahoma, Geneva, sans-serif</option>
+                <option value="Trebuchet MS">Trebuchet MS, Helvetica, sans-serif</option>
+                <option value="Verdana">Verdana, Geneva, sans-serif</option>
+                <option value="Courier New">Courier New, Courier, monospace</option>
+                <option value="Lucida Console">Lucida Console, Monaco, monospace</option>
+              </select>
+          </li>
+          <li class="option">
+            Alignment<select id="align">
+                <option value="left">Left</option>
+                <option value="center">Center</option>
+                <option value="right">Right</option>
+              </select>
+          </li>
+        </ul>
+      </div>
+      <div class="cell small-6">
+        <textarea placeholder="" id="text"></textarea>
+      </div>
+      <div class="cell small-3">
+        <a href="#0" class="large button secondary" id="start">Save</a>
+      </div>
+    </div>
+    <script src="scripts/create.js"></script>
 </body>
 </html>
