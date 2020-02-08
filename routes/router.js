@@ -4,6 +4,19 @@ const Bloggers = require('../models/user');
 
 const router = express.Router();
 
+router.post('/login',async(req,res)=>{
+    const name = req.body.name;
+    const pwd = req.body.password;
+    const user = await Bloggers.findOne({name});
+    if(user && bcrypt.compare(pwd,user.password)){
+        req.session.Auth = name;
+        res.send(false);
+    }else{
+        res.send(true);
+    }
+    res.end();
+})
+
 router.post('/create', async(req,res)=>{
 
     let salt = bcrypt.genSaltSync(10);
