@@ -28,41 +28,29 @@
       </div>
     </div>
     <div class="grid-x">
-      <div class="cell small-3">
-        <ul>
-          <li class="option">
-            Font-Size<input type="number" id="font">
-          </li>
-          <li class="option">
-            Font<select id="font_family">
-                <option value="Arial">Arial, Helvetica, sans-serif</option>
-                <option value="Arial Black">Arial Black, Gadget, sans-serif</option>
-                <option value="Comic Sans MS">Comic Sans MS, cursive, sans-serif</option>
-                <option value="Impact">Impact, Charcoal, sans-serif</option>
-                <option value="Lucida">Lucida Sans Unicode, "Lucida Grande", sans-serif</option>
-                <option value="Tahoma">Tahoma, Geneva, sans-serif</option>
-                <option value="Trebuchet MS">Trebuchet MS, Helvetica, sans-serif</option>
-                <option value="Verdana">Verdana, Geneva, sans-serif</option>
-                <option value="Courier New">Courier New, Courier, monospace</option>
-                <option value="Lucida Console">Lucida Console, Monaco, monospace</option>
-              </select>
-          </li>
-          <li class="option">
-            Alignment<select id="align">
-                <option value="left">Left</option>
-                <option value="center">Center</option>
-                <option value="right">Right</option>
-              </select>
-          </li>
-        </ul>
+      <div class="cell small-1">
+        <li class="option">
+          Alignment<select id="align">
+              <option value="left">Left</option>
+              <option value="center">Center</option>
+              <option value="right">Right</option>
+            </select>
+        </li>
+        <a href="#0" class="large button" id="save">Save</a>
       </div>
-      <div class="cell small-6">
+      <div class="cell small-5">
         <textarea placeholder="" id="text"></textarea>
       </div>
-      <div class="cell small-3">
-        <a href="#0" class="large button secondary" id="start">Save</a>
+      <div class="cell small-6">
+        <h2 id="Title">Preview Window</h2>
+        <div id="preview">
+
+        </div>
       </div>
     </div>
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.8/purify.min.js"></script>
     <script src="scripts/create.js"></script>
 </body>
 </html>

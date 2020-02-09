@@ -1,25 +1,27 @@
-let font_size = document.getElementById('font');
-font_size.addEventListener('change',(e)=>{
-    let font = e.currentTarget.value;
-    let textArea = document.getElementById('text');
-    textArea.style.fontSize = `${font}px`;
-})
+let preview = CKEDITOR.replace( 'text' );
 
-let font = document.getElementById('font_family');
-font.addEventListener('change',(e)=>{
-    let font_fam = e.currentTarget.value;
-    let textArea = document.getElementById('text');
-    textArea.style.fontFamily = `${font_fam}`;
+preview.on('change',(e)=>{
+    let preview = document.getElementById('preview');
+    preview.innerHTML = (CKEDITOR.instances.text.getData());
 })
 
 let align = document.getElementById('align');
 align.addEventListener('change',(e)=>{
     let alignment = e.currentTarget.value;
-    let textArea = document.getElementById('text');
+    let textArea = document.getElementById('preview');
     textArea.style.textAlign = `${alignment}`;
-})
+}) 
 
-let saveBtn = document.getElementById('start');
+let saveBtn = document.getElementById('save');
 saveBtn.addEventListener('click',(e)=>{
-    let textAreaValue = document.getElementById('text').value;
+    let textAreaValue = CKEDITOR.instances.text.getData();
+    thisDate = new Date();
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+
+    $.post('/saveBlog',{
+        blog: textAreaValue.toString(),
+        month: monthNames[thisDate.getMonth()],
+        day: thisDate.getDate()
+    });
 })
