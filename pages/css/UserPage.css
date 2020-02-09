@@ -1,0 +1,48 @@
+.pic{
+    text-align: center;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bloggers{
+    padding: 5px;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.blogger{
+    padding: 5px;
+    border-top: 2px solid #e6e6e6;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+}
+
+.total{
+    margin-left: 25px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+#views{
+    margin-right: 5px;
+    margin-top: -5px;
+}
+
+#likes{
+    margin-right: 5px;
+    margin-top: -5px;
+}
+
+#user{
+    width: fit-content;
+    height: 40vh;
+}

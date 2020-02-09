@@ -22,6 +22,7 @@ saveBtn.addEventListener('click',(e)=>{
     $.post('/saveBlog',{
         blog: textAreaValue.toString(),
         month: monthNames[thisDate.getMonth()],
-        day: thisDate.getDate()
+        day: thisDate.getDate(),
+        year: thisDate.getFullYear()
     });
 })

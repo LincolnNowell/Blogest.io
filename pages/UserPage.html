@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/UserPage.css">
+    <title>User Page</title>
+</head>
+<body>    
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">Blogest.io</li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/community.html">Community</a></li>
+                <li><a href="/pages/create.html">Create </a></li>
+                <li><a href="/pages/login.html">Login</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-x">
+        <div class="cell small-3">
+          <div class="pic">
+              <img src="/imgs/Sketch.jpg" id="user">
+              <h1>Lincoln</h1>
+          </div>
+            Month<select id="align">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+              </select>
+        </div>
+        <div class="cell small-9">
+            <div class="bloggers">
+              <div class="blogger">
+                <div class="title">
+                  <h3>Title</h3>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium nemo deserunt illum voluptatum eveniet est enim, sed tempore, voluptas aliquid dicta explicabo officia reiciendis architecto repellendus, ad placeat eaque alias.</p>
+                <div class="icons">
+                    <div class="total">
+                        <p id="likes">5</p>
+                        <i class="far fa-thumbs-up"></i>
+                    </div>
+                    <div class="total">
+                        <p id="views">15</p>
+                        <i class="far fa-eye"></i>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <script src="https://kit.fontawesome.com/b15cd5eda0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./scripts/UserPage.js"></script>
+</body>
+</html>
