@@ -15,11 +15,13 @@ align.addEventListener('change',(e)=>{
 let saveBtn = document.getElementById('save');
 saveBtn.addEventListener('click',(e)=>{
     let textAreaValue = CKEDITOR.instances.text.getData();
+    let title = document.getElementById('title').value;
     thisDate = new Date();
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
 
     $.post('/saveBlog',{
+        title: title,
         blog: textAreaValue.toString(),
         month: monthNames[thisDate.getMonth()],
         day: thisDate.getDate(),

@@ -39,6 +39,12 @@ router.post('/create', async(req,res)=>{
     res.end();
 })
 
+router.get('/UserPage',(req,res)=>{
+    let name = req.url;
+    console.log(name);
+    res.render('UserPage.ejs', {name:req.query.name});
+})
+
 router.get('/user', async(req,res)=>{
     let blogs = await Bloggers.find();
     res.send(blogs);

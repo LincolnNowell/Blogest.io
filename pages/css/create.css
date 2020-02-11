@@ -1,6 +1,12 @@
 #Title{
     text-align: center;
+    padding: 0px 25% 0px 25%;
+    text-align: center;
 }
+#title{
+    text-align: center;
+}
+
 #preview{
     border-top: 2px solid black;
 }

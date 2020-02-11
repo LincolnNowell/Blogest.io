@@ -6,6 +6,9 @@ require('./db/mongoose');
 
 const app = express();
 
+app.set("view engine","ejs");
+app.set('views', path.join(__dirname, 'views'));
+
 app.use(session(
     { secret: 'Milk', 
     resave: true,

@@ -38,6 +38,14 @@ btns.forEach(element =>{
                 let user = document.createElement('div');
                 user.className = 'blogger';
                 user.innerHTML = CreateBlogger(element.name);
+                user.addEventListener('click',(e)=>{
+                    $.ajax({
+                        type: 'GET',
+                        url: "/UserPage",
+                        data: {name: e.currentTarget.querySelector('h3').innerText},
+                    })
+                    window.location = '/UserPage';
+                })
                 main.append(user);
             }) 
         });
@@ -85,6 +93,14 @@ $.get('/user',(bloggers)=>{
                         let user = document.createElement('div');
                         user.className = 'blogger';
                         user.innerHTML = CreateBlogger(data[i].name);
+                        user.addEventListener('click',(e)=>{
+                            $.ajax({
+                                type: 'GET',
+                                url: "/UserPage",
+                                data: {name: e.currentTarget.querySelector('h3').innerText},
+                            })
+                            window.location = '/UserPage';
+                        })
                         main.append(user);
                     }
                 }
