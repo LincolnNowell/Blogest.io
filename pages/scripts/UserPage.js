@@ -14,7 +14,7 @@ document.getElementById('name').innerText = hold;
 let blogPost = (title,views,likes) =>{
     return`
     <div class="title">
-      <h3 id="title">${title}</h3>
+      <h3 class="main">${title}</h3>
     </div>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium nemo deserunt illum voluptatum eveniet est enim, sed tempore, voluptas aliquid dicta explicabo officia reiciendis architecto repellendus, ad placeat eaque alias.</p>
     <div class="icons">
@@ -50,11 +50,13 @@ async function add(){
     let bloggers = document.getElementsByClassName('blogger');
     for(blog of bloggers){
         blog.addEventListener('click',(e)=>{
-            let SelectedBlog = document.getElementById('title').innerText;
+            let SelectedBlog = e.currentTarget.getElementsByClassName('main').item(0).innerText;
             let SelectedUser = document.getElementById('name').innerText;
-            document.cookie = SelectedBlog + ";" + SelectedUser;
+            Cookies.set('blog', SelectedBlog, { expires: 7, path: '' })
+            Cookies.set('user', SelectedUser, { expires: 7, path: '' })
+            window.location.href = '/pages/blogPage.html';
         })
-    }
+    } 
 }
 
 add();

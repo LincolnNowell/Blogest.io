@@ -62,10 +62,6 @@ router.get('/blogs',async(req,res)=>{
     res.send(user.blogs);
 })
 
-router.get('/read',(req,res)=>{
-    res.render('blogPage',{name: req.query.user,title: req.query.blog});
-})
-
 router.get('/user', async(req,res)=>{
     let blogs = await Bloggers.find();
     res.send(blogs);
