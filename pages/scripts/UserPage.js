@@ -29,28 +29,32 @@ let blogPost = (title,views,likes) =>{
       </div>`
 }
 
-$.ajax({
-    type: 'GET',
-    url: "/blogs",
-    data: {name: hold},
-    success: (data,status) =>{
-        let BlogPostArea = document.querySelector('.bloggers');
-        if(data){
-            for(blog of data){
-                let div = document.createElement('div');
-                div.className = 'blogger';
-                div.innerHTML = blogPost(blog.title,blog.views,blog.likes);
-                div.addEventListener('click',(e)=>{
-                    let SelectedBlog = document.getElementById('title').innerText;
-                    let SelectedUser = document.getElementById('name').innerText;
-                    $.ajax({
-                        type: 'GET',
-                        url: '/read',
-                        data: {blog: SelectedBlog,user: SelectedUser}
-                    })
-                })
-                BlogPostArea.append(div);
+async function add(){
+    await $.ajax({
+        type: 'GET',
+        url: "/blogs",
+        data: {name: hold},
+        success: (data,status) =>{
+            let BlogPostArea = document.querySelector('.bloggers');
+            if(data){
+                for(blog of data){
+                    let div = document.createElement('div');
+                    div.className = 'blogger';
+                    div.innerHTML = blogPost(blog.title,blog.views,blog.likes);
+                    BlogPostArea.append(div);
+                }
             }
         }
+    })
+
+    let bloggers = document.getElementsByClassName('blogger');
+    for(blog of bloggers){
+        blog.addEventListener('click',(e)=>{
+            let SelectedBlog = document.getElementById('title').innerText;
+            let SelectedUser = document.getElementById('name').innerText;
+            document.cookie = SelectedBlog + ";" + SelectedUser;
+        })
     }
-})
+}
+
+add();

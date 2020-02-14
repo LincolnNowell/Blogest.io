@@ -4,6 +4,8 @@ let session = require('express-session');
 require('./db/mongoose');
 
 const app = express();
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
 
 app.use(session(
     { secret: 'Taco', 

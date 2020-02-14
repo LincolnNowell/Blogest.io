@@ -63,7 +63,7 @@ router.get('/blogs',async(req,res)=>{
 })
 
 router.get('/read',(req,res)=>{
-    console.log(req.query);
+    res.render('blogPage',{name: req.query.user,title: req.query.blog});
 })
 
 router.get('/user', async(req,res)=>{
