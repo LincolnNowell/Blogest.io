@@ -40,11 +40,12 @@ btns.forEach(element =>{
                 user.innerHTML = CreateBlogger(element.name);
                 user.addEventListener('click',(e)=>{
                     $.ajax({
-                        type: 'GET',
+                        type: 'POST',
                         url: "/UserPage",
                         data: {name: e.currentTarget.querySelector('h3').innerText},
                     })
-                    window.location = '/UserPage';
+                    document.cookie = e.currentTarget.querySelector('h3').innerText;
+                    window.location.href = '/pages/UserPage.html';
                 })
                 main.append(user);
             }) 
@@ -95,11 +96,12 @@ $.get('/user',(bloggers)=>{
                         user.innerHTML = CreateBlogger(data[i].name);
                         user.addEventListener('click',(e)=>{
                             $.ajax({
-                                type: 'GET',
+                                type: 'POST',
                                 url: "/UserPage",
                                 data: {name: e.currentTarget.querySelector('h3').innerText},
                             })
-                            window.location = '/UserPage';
+                            document.cookie = e.currentTarget.querySelector('h3').innerText;
+                            window.location.href = '/pages/UserPage.html';
                         })
                         main.append(user);
                     }

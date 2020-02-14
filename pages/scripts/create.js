@@ -12,6 +12,21 @@ align.addEventListener('change',(e)=>{
     textArea.style.textAlign = `${alignment}`;
 }) 
 
+
+class Blog {
+    constructor(title,blog){
+        this.title = title;
+        this.blog = blog;
+        this.views = 0;
+        this.likes = 0;
+    }
+
+    GetDate(month,day,year){
+        this.month = month;
+        this.day = day;
+        this.year = year;
+    }
+}
 let saveBtn = document.getElementById('save');
 saveBtn.addEventListener('click',(e)=>{
     let textAreaValue = CKEDITOR.instances.text.getData();
@@ -19,12 +34,7 @@ saveBtn.addEventListener('click',(e)=>{
     thisDate = new Date();
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
-
-    $.post('/saveBlog',{
-        title: title,
-        blog: textAreaValue.toString(),
-        month: monthNames[thisDate.getMonth()],
-        day: thisDate.getDate(),
-        year: thisDate.getFullYear()
-    });
+    let blog = new Blog(title,textAreaValue.toString());
+    blog.GetDate(monthNames[thisDate.getMonth()],thisDate.getDate(),thisDate.getFullYear());
+    $.post('/saveBlog',blog);
 })
