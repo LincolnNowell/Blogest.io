@@ -1,14 +1,4 @@
-let hold = '';
-let append = true;
-for(let i = 0; i < document.cookie.length; i++){
-    if(document.cookie[i] === ';'){
-        append = false;
-    }
-    if(append){
-        hold += document.cookie[i];
-    }
-}
-
+let hold = Cookies.get('name');
 document.getElementById('name').innerText = hold;
 
 let blogPost = (title,views,likes) =>{
@@ -52,8 +42,8 @@ async function add(){
         blog.addEventListener('click',(e)=>{
             let SelectedBlog = e.currentTarget.getElementsByClassName('main').item(0).innerText;
             let SelectedUser = document.getElementById('name').innerText;
-            Cookies.set('blog', SelectedBlog, { expires: 7, path: '' })
-            Cookies.set('user', SelectedUser, { expires: 7, path: '' })
+            Cookies.set('blog', SelectedBlog, {path: '' })
+            Cookies.set('user', SelectedUser, {path: '' })
             window.location.href = '/pages/blogPage.html';
         })
     } 

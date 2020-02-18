@@ -6,54 +6,30 @@ const CreateBlogger = (name) =>{ return `
 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium nemo deserunt illum voluptatum eveniet est enim, sed tempore, voluptas aliquid dicta explicabo officia reiciendis architecto repellendus, ad placeat eaque alias.</p>
 `}
 
-let btns = document.querySelectorAll('fieldset').item(0).querySelectorAll('input');
-btns.forEach(element =>{
-    element.addEventListener('click',(e)=>{
-        let btnToSetUp = e.currentTarget.id;
-        $.get('/user',(bloggers)=>{
-            let main = document.querySelector('.bloggers');   
 
-            let child = main.lastElementChild;
-            while(child){
-                main.removeChild(child);
-                child = main.lastElementChild;
-            } 
+function addBlogUsers(bloggers,main){
+    for(let i = 0; i < 12; i++){
+        let user = document.createElement('div');
+        user.className = 'blogger';
+        user.innerHTML = CreateBlogger(bloggers[i].name);
+        user.addEventListener('click',(e)=>{
+            Cookies.set('name', e.currentTarget.querySelector('h3').innerText, {path: '/pages/UserPage.html' });
+            window.location.href = '/pages/UserPage.html';
+        })
+        main.append(user);
+    }
+}
 
-            switch(btnToSetUp){
-                case 'most':
-                    console.log('most');
-                break;
-                case 'new':
-                    console.log('new');
-                break;
-                case 'highest':
-                    console.log('highest');
-                break;
-                default:
-
-                break;
-            }   
-
-            bloggers.forEach(element =>{
-                let user = document.createElement('div');
-                user.className = 'blogger';
-                user.innerHTML = CreateBlogger(element.name);
-                user.addEventListener('click',(e)=>{
-                    $.ajax({
-                        type: 'POST',
-                        url: "/UserPage",
-                        data: {name: e.currentTarget.querySelector('h3').innerText},
-                    })
-                    document.cookie = e.currentTarget.querySelector('h3').innerText;
-                    window.location.href = '/pages/UserPage.html';
-                })
-                main.append(user);
-            }) 
-        });
-    })
-})
-
+function paganate(sort = 'false'){
 $.get('/user',(bloggers)=>{
+    let pagenateArea = document.querySelector('.pagination');
+    if(pagenateArea.children != undefined){
+        let child = pagenateArea.lastElementChild;
+        while(child){
+            pagenateArea.removeChild(child);
+            child = pagenateArea.lastElementChild;
+        } 
+    }
     let numbOfBloggers = 0;
     numbOfBloggers = bloggers.length;
     let stuff = numbOfBloggers;
@@ -95,12 +71,7 @@ $.get('/user',(bloggers)=>{
                         user.className = 'blogger';
                         user.innerHTML = CreateBlogger(data[i].name);
                         user.addEventListener('click',(e)=>{
-                            $.ajax({
-                                type: 'POST',
-                                url: "/UserPage",
-                                data: {name: e.currentTarget.querySelector('h3').innerText},
-                            })
-                            document.cookie = e.currentTarget.querySelector('h3').innerText;
+                            Cookies.set('name', e.currentTarget.querySelector('h3').innerText, {path: '/pages/UserPage.html' });
                             window.location.href = '/pages/UserPage.html';
                         })
                         main.append(user);
@@ -109,4 +80,61 @@ $.get('/user',(bloggers)=>{
             })
         })
     })
+})
+
+}
+
+let btns = document.querySelectorAll('fieldset').item(0).querySelectorAll('input');
+btns.forEach(element =>{
+    element.addEventListener('click',(e)=>{
+        let btnToSetUp = e.currentTarget.id;
+        $.get('/user',(bloggers)=>{
+            let main = document.querySelector('.bloggers');   
+
+            let child = main.lastElementChild;
+            while(child){
+                main.removeChild(child);
+                child = main.lastElementChild;
+            } 
+
+            switch(btnToSetUp){
+                case 'most':
+                    paganate('most');
+                    bloggers = insertionSort(bloggers,'views');
+                break;
+                case 'new':
+                    paganate('new');
+                break;
+                case 'highest':
+                    paganate('highest');
+                    bloggers = insertionSort(bloggers,'likes');
+                break;
+                case 'alphabetical':
+                    paganate('alphabetical');
+                    bloggers = insertionSort(bloggers,'name');
+                break;
+                default:
+
+                break;
+            }   
+            
+            addBlogUsers(bloggers,main);
+        });
+    })
+})
+
+paganate();
+
+$.get('/user',(bloggers)=>{
+    let main = document.querySelector('.bloggers');
+    for(let i = 0; i < 12; i++){
+        let user = document.createElement('div');
+        user.className = 'blogger';
+        user.innerHTML = CreateBlogger(bloggers[i].name);
+        user.addEventListener('click',(e)=>{
+            Cookies.set('name', e.currentTarget.querySelector('h3').innerText, {path: '/pages/UserPage.html' });
+            window.location.href = '/pages/UserPage.html';
+        })
+        main.append(user);
+    }
 })

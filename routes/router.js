@@ -51,6 +51,10 @@ router.post('/UserPage',async(req,res)=>{
     const user = await Bloggers.findOne({name: req.body.name})
 })
 
+router.post('/update',async(req,res)=>{
+
+})
+
 router.get('/selected',(req,res)=>{
     console.log(req.session.selected);
     res.send(req.session.selected); 

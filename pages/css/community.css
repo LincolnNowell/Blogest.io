@@ -36,3 +36,34 @@
     border: 2px solid #e6e6e6;
     margin-right: 15px;  
 }
+
+#title{
+    text-align: center;
+}
+
+#main{
+    border-top: 2px solid gray;
+    padding-top: 25px;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+}
+
+.total{
+    margin-left: 25px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+#views{
+    margin-right: 5px;
+    margin-top: -5px;
+}
+
+#likes{
+    margin-right: 5px;
+    margin-top: -5px;
+}
