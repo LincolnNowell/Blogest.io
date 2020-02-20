@@ -52,7 +52,22 @@ router.post('/UserPage',async(req,res)=>{
 })
 
 router.post('/update',async(req,res)=>{
+    let name = req.body.name;
+    let title = req.body.title;
+    const user = await Bloggers.findOne({name: req.body.name})
+    let blogs = user.blogs;
+    let sum = 0;
+    blogs.forEach(element => {
+        if(element['title'] === title){
+            let number = Number.parseInt(element['views']);
+            element['views'] = (++number).toString();
+        }
+        sum += Number.parseInt(element['views']);
+    });
 
+    await Bloggers.findOneAndUpdate({"name":name},{$set :{"views": sum.toString()}});
+    await Bloggers.findOneAndUpdate({"name":name},{$set :{"blogs": []}});
+    await Bloggers.findOneAndUpdate({"name":name},{$push :{"blogs": blogs}});
 })
 
 router.get('/selected',(req,res)=>{

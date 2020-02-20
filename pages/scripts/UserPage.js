@@ -1,12 +1,12 @@
 let hold = Cookies.get('name');
 document.getElementById('name').innerText = hold;
 
-let blogPost = (title,views,likes) =>{
+let blogPost = (title,preview,views,likes) =>{
     return`
     <div class="title">
       <h3 class="main">${title}</h3>
     </div>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium nemo deserunt illum voluptatum eveniet est enim, sed tempore, voluptas aliquid dicta explicabo officia reiciendis architecto repellendus, ad placeat eaque alias.</p>
+    <p>${preview}</p>
     <div class="icons">
         <div class="total">
             <p id="likes">${likes}</p>
@@ -30,7 +30,7 @@ async function add(){
                 for(blog of data){
                     let div = document.createElement('div');
                     div.className = 'blogger';
-                    div.innerHTML = blogPost(blog.title,blog.views,blog.likes);
+                    div.innerHTML = blogPost(blog.title,blog.preview,blog.views,blog.likes);
                     BlogPostArea.append(div);
                 }
             }

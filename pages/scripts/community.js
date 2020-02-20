@@ -102,9 +102,6 @@ btns.forEach(element =>{
                     paganate('most');
                     bloggers = insertionSort(bloggers,'views');
                 break;
-                case 'new':
-                    paganate('new');
-                break;
                 case 'highest':
                     paganate('highest');
                     bloggers = insertionSort(bloggers,'likes');
@@ -137,4 +134,34 @@ $.get('/user',(bloggers)=>{
         })
         main.append(user);
     }
+})
+
+let Search = document.querySelector('#Sbtn');
+Search.addEventListener('click',(e)=>{
+    let input = document.getElementById('Sbar').value;
+    $.ajax({
+        type: 'GET',
+        url: "/user",
+        success: (data,status) =>{
+            let main = document.querySelector('.bloggers');   
+
+            let child = main.lastElementChild;
+            while(child){
+                main.removeChild(child);
+                child = main.lastElementChild;
+            } 
+            data.forEach(element =>{
+                if(element['name'] === input){
+                    let user = document.createElement('div');
+                    user.className = 'blogger';
+                    user.innerHTML = CreateBlogger(input);
+                    user.addEventListener('click',(e)=>{
+                        Cookies.set('name', e.currentTarget.querySelector('h3').innerText, {path: '/pages/UserPage.html' });
+                        window.location.href = '/pages/UserPage.html';
+                    })
+                    main.append(user);
+                }
+            })
+        }
+    })
 })
