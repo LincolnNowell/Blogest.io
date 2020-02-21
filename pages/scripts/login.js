@@ -5,7 +5,8 @@ btn.addEventListener('click',(e)=>{
     let pwd = document.getElementById('pwd').value;
     $.post('/login',{name: name,pwd:pwd},(status)=>{
         if(status){
-            window.location.href = '/pages/create.html';
+           Cookies.set('home', name, {path: '/pages/home.html' });
+           window.location.href = '/pages/home.html';
         }else{
             alert('Invalid Creditials')
         }

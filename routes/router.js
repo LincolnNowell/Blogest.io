@@ -17,6 +17,10 @@ router.post('/login',async(req,res)=>{
     res.end();
 })
 
+router.get('/using',(req,res)=>{
+    res.send(req.session.Auth);
+})
+
 router.post('/create', async(req,res)=>{
 
     let salt = bcrypt.genSaltSync(10);

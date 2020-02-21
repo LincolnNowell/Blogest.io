@@ -25,4 +25,3 @@ function insertionSort(list,value) {
     }
     return list
   }
-  
